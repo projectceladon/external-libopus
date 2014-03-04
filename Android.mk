@@ -145,6 +145,4 @@ LOCAL_CPPFLAGS      := -DBSD=1 -ffast-math -O1 -funroll-loops
 
 LOCAL_STATIC_LIBRARIES := libogg
 
-LOCAL_SDK_VERSION := 19
-
 include $(BUILD_SHARED_LIBRARY)
