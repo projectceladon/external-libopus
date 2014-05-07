@@ -136,7 +136,6 @@ LOCAL_SRC_FILES := celt/bands.c \
                    src/repacketizer.c \
                    src/repacketizer_demo.c
 
-LOCAL_LDLIBS        := -lm -llog
 LOCAL_CFLAGS        := -DNULL=0 -DSOCKLEN_T=socklen_t -DLOCALE_NOT_USED \
                        -D_LARGEFILE_SOURCE=1 -D_FILE_OFFSET_BITS=64 \
                        -Drestrict='' -D__EMX__ -DOPUS_BUILD -DFIXED_POINT \
