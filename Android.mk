@@ -23,15 +23,15 @@ LOCAL_CPPFLAGS      := -DBSD=1 -ffast-math -O2 -funroll-loops
 # Only add the appropriate defines for 32-bit arm architecture.
 LOCAL_SRC_FILES_arm += $(CELT_SOURCES_ARM)
 LOCAL_CFLAGS_arm += -DOPUS_ARM_ASM -DOPUS_ARM_INLINE_ASM \
-                    -DOPUS_ARM_MAY_HAVE_EDSP -DOPUS_ARM_PRESUME_EDSP \
-                    -DOPUS_ARM_INLINE_EDSP -DOPUS_ARM_MAY_HAVE_MEDIA \
-                    -DOPUS_ARM_PRESUME_MEDIA -DOPUS_ARM_INLINE_MEDIA \
+                    -DOPUS_ARM_MAY_HAVE_EDSP -DOPUS_ARM_INLINE_EDSP \
+                    -DOPUS_ARM_MAY_HAVE_MEDIA -DOPUS_ARM_INLINE_MEDIA \
                     -DOPUS_HAVE_RTCD
 # DSP, MEDIA and NEON instructions are in the same assembler file - thus we
 # need to include it even if NEON is not supported on target platform.
 LOCAL_SRC_FILES_arm += $(subst .s,_gnu.s,$(CELT_SOURCES_ARM_ASM))
 ifeq ($(ARCH_ARM_HAVE_NEON),true)
-LOCAL_SRC_FILES_arm += $(CELT_SOURCES_ARM_NEON_INTR)
+LOCAL_SRC_FILES_arm += $(CELT_SOURCES_ARM_NEON_INTR) \
+                       $(SILK_SOURCES_ARM_NEON_INTR)
 LOCAL_CFLAGS_arm += -DOPUS_ARM_MAY_HAVE_NEON -DOPUS_ARM_MAY_HAVE_NEON_INTR \
                     -DOPUS_ARM_PRESUME_NEON -DOPUS_ARM_INLINE_NEON
 endif
