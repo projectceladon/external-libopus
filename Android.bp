@@ -315,6 +315,4 @@ cc_library_shared {
             },
         },
     },
-
-    static_libs: ["libogg"],
 }
